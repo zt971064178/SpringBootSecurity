@@ -1,0 +1,121 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>cn.itcast.shiro</groupId>
+  <artifactId>simple-shiro</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>simple-shiro Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  
+  <parent>  
+	<groupId>org.springframework.boot</groupId>  
+	<artifactId>spring-boot-starter-parent</artifactId>  
+	<version>1.3.7.RELEASE</version>  
+	<relativePath />  
+  </parent>  
+  
+  <dependencies>
+  	<dependency>  
+		<groupId>org.springframework.boot</groupId>  
+		<artifactId>spring-boot-starter-web</artifactId> 
+  	</dependency>
+  	
+	<dependency>  
+	   	<groupId>org.springframework.boot</groupId>  
+	   	<artifactId>spring-boot-configuration-processor</artifactId>  
+	   	<optional>true</optional>  
+	</dependency> 
+	
+	<dependency>  
+		<groupId>org.springframework.boot</groupId>  
+		<artifactId>spring-boot-devtools</artifactId>  
+	</dependency>  
+	
+	<dependency>  
+		<groupId>org.springframework.boot</groupId>  
+		<artifactId>spring-boot-starter-test</artifactId>  
+	</dependency> 
+	
+	<!-- jsp支持配置 --> 
+	<dependency> 
+		<groupId>org.apache.tomcat.embed</groupId> 
+		<artifactId>tomcat-embed-jasper</artifactId> 
+		<scope>provided</scope> 
+	</dependency> 
+	 
+	<dependency> 
+		<groupId>javax.servlet</groupId> 
+		<artifactId>jstl</artifactId> 
+	</dependency> 
+  	
+  	<dependency> 
+		<groupId>com.alibaba</groupId> 
+		<artifactId>fastjson</artifactId> 
+		<version>1.2.12</version> 
+	</dependency> 
+	
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-core</artifactId>
+	    <version>1.2.6</version>
+	</dependency>
+  	
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-web</artifactId>
+	    <version>1.2.6</version>
+	</dependency>
+  	
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-ehcache</artifactId>
+	    <version>1.2.6</version>
+	</dependency>
+	
+	<dependency>
+	    <groupId>org.apache.shiro</groupId>
+	    <artifactId>shiro-spring</artifactId>
+	    <version>1.2.6</version>
+	</dependency>
+	
+  
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+  <build>
+    <finalName>simple-shiro</finalName>
+    <plugins>  
+		<plugin>  
+			<groupId>org.springframework.boot</groupId>  
+		    <artifactId>spring-boot-maven-plugin</artifactId>  
+		</plugin>  
+		<plugin>  
+		    <groupId>org.apache.maven.plugins</groupId>  
+		    <artifactId>maven-surefire-plugin</artifactId>  
+		    <configuration>  
+		      <testFailureIgnore>true</testFailureIgnore>  
+		    </configuration>  
+		</plugin>   
+
+		<plugin>
+			<groupId>org.eclipse.jetty</groupId>
+			<artifactId>jetty-maven-plugin</artifactId>
+			<version>9.3.8.v20160314</version>
+			<configuration>
+				<scanIntervalSeconds>3</scanIntervalSeconds>
+				<stopKey>foo</stopKey>
+				<stopPort>9999</stopPort>
+				<connectors>
+					<connector implementation="org.mortbay.jetty.nio.SelectChannelConnector">
+						<port>8000</port>
+					</connector>
+				</connectors>
+			</configuration>
+		</plugin>
+	</plugins>  
+  </build>
+</project>

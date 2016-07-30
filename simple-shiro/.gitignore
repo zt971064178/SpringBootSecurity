@@ -7,4 +7,5 @@ bin/
 /
 .apt_generated/
 .factorypath
+/
 .gitignore.bak
